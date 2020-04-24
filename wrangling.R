@@ -73,21 +73,13 @@ str(sdg2018es)
 names(sdg2018es)
 
 #
-# replace NA by EU
-sdg2019$'Sub-region' <- replace(sdg2019$'Sub-region', is.na(sdg2019$'Sub-region'), "Whole European Union")
 # change region as factor
-sdg2019$'Sub-region' <- as.factor(sdg2019$'Sub-region')
-class(sdg2019)
-# from tibble to dataframe
-#sdg2019 <- as.data.frame(sdg2019)
+sdg2018es$region_id <- as.factor(sdg2018es$region_id)
+sdg2018es$'Region name' <- as.factor(sdg2018es$'Region name')
 
-## COUNTRY overall data + all 17 goal indexes
-#  EUROPE
-sdg2019eu <- cbind(sdg2019, goal_index)
-
-class(sdg2019eu)
-str(sdg2019eu)
-names(sdg2019eu)
+class(sdg2018es)
+str(sdg2018es)
+names(sdg2018es)
 
 save(sdg2018es, file = "rda/sdg2018es.rda")
 
