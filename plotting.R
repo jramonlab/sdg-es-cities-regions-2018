@@ -58,7 +58,7 @@ sdg2018es %>% group_by(Reg = .$'Region name') %>%
   ggtitle("Índice ODS conseguido por Comunidad. 2018") + 
   xlab("") + 
   ylab("Índice ODS. (0-100)") +
-  annotate(geom="text", x=2.5, y=86, label = "Fuente: RE-DS.SD-SN 2018",color="darkred", size = 4.5)+
+  annotate(geom="text", x=2.5, y=86, label = "Fuente: REDS.SDSN 2018",color="darkred", size = 4.5)+
   annotate(geom="text", x=1.5, y=84, label = "Gráficos: JRLAB. 2020",color="darkblue", size = 4.5) +
   theme_classic() +
   theme(title = element_text(size = 20),
@@ -66,8 +66,7 @@ sdg2018es %>% group_by(Reg = .$'Region name') %>%
         axis.text = element_text(size = 15),
         aspect.ratio = 1/1)
 
-ggsave("figs/ods_2018_index_1_1.png", width = 15, height = 15)
-
+ggsave("figs/ods_2018_index_1_1.png", width = 15, height = 10)
 
 
 #
@@ -90,7 +89,7 @@ sdg2018es %>% group_by(Reg = .$'Region name') %>%
   ggtitle("Índice ODS conseguido por Comunidad. 2018") + 
   xlab("") + 
   ylab("Ciudades analizadas por CCAA / Índice ODS. (0-100)") +
-  annotate(geom="text", x=2.5, y=86, label = "Fuente: RE-DS.SD-SN 2018",color="darkred", size = 4.5)+
+  annotate(geom="text", x=2.5, y=86, label = "Fuente: REDS.SDSN 2018",color="darkred", size = 4.5)+
   annotate(geom="text", x=1.5, y=84, label = "Gráficos: JRLAB. 2020",color="darkblue", size = 4.5) +
   theme_classic() +
   theme(title = element_text(size = 20),
@@ -98,4 +97,4 @@ sdg2018es %>% group_by(Reg = .$'Region name') %>%
         axis.text = element_text(size = 15),
         aspect.ratio = 1/1)
 
-ggsave("figs/ods_2018_index_region_1_1.png", width = 15, height = 15)
+ggsave("figs/ods_2018_index_region_1_1.png", width = 15, height = 10)
