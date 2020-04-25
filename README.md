@@ -3,7 +3,11 @@ README
 JRamon
 24/4/2020
 
-## SDG index score Spain by Region 2018
+## SDG index score in Spain by Region 2018
+
+This is analysis of the SDG accomplishment for regions in Spain. It is
+based on the analysis of the performance for different cities within
+each region in 2018 done by REDS (credits below).
 
 ## Datasets
 
@@ -14,44 +18,52 @@ JRamon
   - Modified:
 /data/ods-es-cities-by-regions-2018.xlsx"
 
-<img src="figs\ods_2018_index_1_1.jpg" width="100%" style="display: block; margin: auto;" />
-
 ## SDG index plotted by region
 
-<center>
+<img src="figs\ods_2018_index_1_1.png" width="100%" style="display: block; margin: auto;" />
 
-![](figs\\ods_2018_index_1_1.png)
+## Is this a solid approach to show region SDG index score?
 
-</center>
+As the index per region is calculated with the average of each city
+within the region we want to show how many cities were analysed for each
+region. See red bars in the following chart.
 
-## Is this a solid approach to show SDG index by region?
+Note the regions with one single observed city are present in both
+extremes of the
+ranking.
 
-![](README_files/figure-gfm/chart%201-1.png)<!-- -->
-
-<center>
-
-![](figs\\ods_2018_index_region_1_1.png)
-
-</center>
+<img src="figs\ods_2018_index_region_1_1.png" width="100%" style="display: block; margin: auto;" />
 
 ## Credits
 
-Study inspired in: Inés Sánchez de Madariaga, Javier García López y
+Study based on: Inés Sánchez de Madariaga, Javier García López y
 Raffaele Sisto. (2018). MIRANDO HACIA EL FUTURO: CIUDADES SOSTENIBLES
 Los Objetivos de Desarrollo Sostenible en 100 ciudades españolas.
 <http://reds-sdsn.es/comunicado-lanzamiento-informe-ods-ciudades>
 
-Study baesd on dataset: Inés Sánchez de Madariaga, Javier García López y
-Raffaele Sisto. (2018). MIRANDO HACIA EL FUTURO: CIUDADES SOSTENIBLES
-Los Objetivos de Desarrollo Sostenible en 100 ciudades españolas.
+Study based on the following dataset: Inés Sánchez de Madariaga, Javier
+García López y Raffaele Sisto. (2018). MIRANDO HACIA EL FUTURO: CIUDADES
+SOSTENIBLES Los Objetivos de Desarrollo Sostenible en 100 ciudades
+españolas.
 
 ## Acknowledgements
 
 Thanks to Marta García Haro from REDS-SDSN for her assistance.
 
-Special Thanks to Azahara y Nuria from UGR sostenible for pointing me in
-the right
-direction.
+Special Thanks to Azahara y Nuria from “UGR sostenible” for pointing me
+in the right direction.
+
+## Citation
+
+JRLAB.2020. Jose Ramón Hernández Galán.
+
+## Contact
+
+JRLAB.2020. Please, write for any indication at
+<jrlabnotifier@gmail.com>
+
+[**JRLAB
+web**](sites.google.com/view/jrlabportfolio)
 
 ## License
 
