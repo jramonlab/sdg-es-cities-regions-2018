@@ -23,6 +23,8 @@ JRamon
 
 ## Is this a solid approach to show SDG index by region?
 
+![](README_files/figure-gfm/chart%201-1.png)<!-- -->
+
 <center>
 
 ![](figs\\ods_2018_index_region_1_1.png)
@@ -42,7 +44,7 @@ Los Objetivos de Desarrollo Sostenible en 100 ciudades españolas.
 
 ## Acknowledgements
 
-Thanks to Marta García Haro from REDS-SDSN for his assisance.
+Thanks to Marta García Haro from REDS-SDSN for her assistance.
 
 Special Thanks to Azahara y Nuria from UGR sostenible for pointing me in
 the right
