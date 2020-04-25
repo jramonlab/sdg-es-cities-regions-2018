@@ -13,13 +13,9 @@ output:
   pdf_document: default
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
+## SDG index score in Spain by Region 2018
 
-## SDG index score Spain by Region 2018
-
-
+This is analysis of the SDG accomplishment for regions in Spain. It is based on the analysis of the performance for different cities within each region in 2018 done by REDS (credits below).
 
 ## Datasets
 
@@ -27,32 +23,47 @@ knitr::opts_chunk$set(echo = TRUE)
 
 - Modified: /data/ods-es-cities-by-regions-2018.xlsx"
 
+
 ## SDG index plotted by region
 
-<center>
-![](figs\\ods_2018_index_1_1.png){width=600px}
-</center>
 
-## Is this a solid approach to show SDG index by region?
+```{r echo=FALSE, out.width="100%", fig.align='center'}
+knitr::include_graphics("figs\\ods_2018_index_1_1.png")
+```
 
-<center>
-![](figs\\ods_2018_index_region_1_1.png){width=600px}
-</center>
+
+## Is this a solid approach to show region SDG index score?
+
+As the index per region is calculated with the average of each city within the region we want to show how many cities were analysed for each region. See red bars in the following chart.
+
+Note the regions with one single observed city are present in both extremes of the ranking.
+
+```{r echo=FALSE, out.width="100%", fig.align='center'}
+knitr::include_graphics("figs\\ods_2018_index_region_1_1.png")
+```
 
 ## Credits
 
-Study inspired in:
+Study based on:
 Inés Sánchez de Madariaga, Javier García López y Raffaele Sisto. (2018). MIRANDO HACIA EL FUTURO: CIUDADES SOSTENIBLES Los Objetivos de Desarrollo Sostenible en 100 ciudades españolas. 
 http://reds-sdsn.es/comunicado-lanzamiento-informe-ods-ciudades
 
-Study baesd on dataset:
+Study based on the following dataset:
 Inés Sánchez de Madariaga, Javier García López y Raffaele Sisto. (2018). MIRANDO HACIA EL FUTURO: CIUDADES SOSTENIBLES Los Objetivos de Desarrollo Sostenible en 100 ciudades españolas.
 
 ## Acknowledgements
 
-Thanks to Marta García Haro from REDS-SDSN for his assisance.
+Thanks to Marta García Haro from REDS-SDSN for her assistance.
 
-Special Thanks to Azahara y Nuria from UGR sostenible for pointing me in the right direction.
+Special Thanks to Azahara y Nuria from "UGR sostenible" for pointing me in the right direction.
+
+## Citation
+JRLAB. 2020. Jose Ramón Hernández Galán. SDG index score in Spain by Region 2018.
+
+## Contact
+JRLAB.2020. Please, write for any indication at jrlabnotifier@gmail.com
+
+[**JRLAB web**](sites.google.com/view/jrlabportfolio)
 
 ## License
 

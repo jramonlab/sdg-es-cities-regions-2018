@@ -55,7 +55,8 @@ in the right direction.
 
 ## Citation
 
-JRLAB.2020. Jose Ramón Hernández Galán.
+JRLAB. 2020. Jose Ramón Hernández Galán. SDG index score in Spain by
+Region 2018.
 
 ## Contact
 
