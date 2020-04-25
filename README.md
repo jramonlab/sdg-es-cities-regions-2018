@@ -11,7 +11,10 @@ JRamon
     provided by RE-DS Spain (Credits below). Find it
     [**here**](http://reds-sdsn.es/wp-content/uploads/2018/10/Spanish-Cities-Index_para-publicacio%CC%81n-web.xlsx)
 
-  - Modified: /data/ods-es-cities-by-regions-2018.xlsx"
+  - Modified:
+/data/ods-es-cities-by-regions-2018.xlsx"
+
+<img src="figs\ods_2018_index_1_1.png" width="100%" style="display: block; margin: auto;" />
 
 ## SDG index plotted by region
 
