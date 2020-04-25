@@ -58,7 +58,7 @@ Thanks to Marta García Haro from REDS-SDSN for her assistance.
 Special Thanks to Azahara y Nuria from "UGR sostenible" for pointing me in the right direction.
 
 ## Citation
-JRLAB. 2020. Jose Ramón Hernández Galán. SDG index score in Spain by Region 2018.
+Jose Ramón Hernández Galán. JRLAB. 2020. SDG index score in Spain by Region 2018.
 
 ## Contact
 JRLAB.2020. Please, write for any indication at jrlabnotifier@gmail.com
