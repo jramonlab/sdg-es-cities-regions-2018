@@ -14,7 +14,7 @@ JRamon
   - Modified:
 /data/ods-es-cities-by-regions-2018.xlsx"
 
-<img src="figs\ods_2018_index_1_1.png" width="100%" style="display: block; margin: auto;" />
+<img src="figs\ods_2018_index_1_1.jpg" width="100%" style="display: block; margin: auto;" />
 
 ## SDG index plotted by region
 
