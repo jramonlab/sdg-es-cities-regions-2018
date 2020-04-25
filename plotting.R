@@ -42,6 +42,9 @@ sdg2018es %>% group_by(Reg = .$'Region name') %>%
               ggtitle("Índice ODS conseguido por Comunidad") + 
               xlab("Índice ODS. (0-100)")
 
+#
+# 100 cities check
+sdg2018es %>% nrow()
 
 #
 # GOOD chart of regions
