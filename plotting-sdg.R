@@ -61,6 +61,8 @@ sdg2018es_tidy <- sdg2018es %>%
                                 sdg01, sdg02, sdg03, sdg04, sdg05, sdg06, sdg07, sdg08,
                                 sdg09, sdg10, sdg11, sdg12, sdg13, sdg14, sdg15, sdg16, sdg17)
 
+save(sdg2018es_tidy, file = "rda/sdg2018es-tidy.rda")
+
 #
 # SDGs index across different SDGs in ANDALUCIA
 sdg2018es_tidy %>% 
@@ -116,102 +118,3 @@ sdg2018es_tidy %>%
         aspect.ratio = 1/1)
 
 ggsave("figs/ods_2018_Granada.png", width = 15, height = 10)
-
-#
-# SDGs index across different SDGs in GRANADA (with icons)
-p <- sdg2018es_tidy %>% 
-  filter(City == "Granada") %>%
-  ggplot(aes(x = reorder(SDG_NUM, SDG_VAL),
-             y = SDG_VAL,
-             label = round(SDG_VAL, 1))) +
-  geom_text(nudge_y = 5, color = "black", size = 5) +
-  geom_col(alpha = 0.5, fill = "lightblue") +
-  coord_flip() +
-  scale_x_discrete(labels = c("Andalucía" = expression(bold("*ANDALUCÍA")), parse=TRUE)) + 
-  scale_y_continuous(limits = c(0,100)) +
-  ggtitle("Índice ODS GRANADA.2018") + 
-  xlab("") + 
-  ylab("Índice ODS. (0-100)") +
-  annotate(geom="text", x=2.5, y=86, label = "Fuente: REDS.SDSN 2018",color="darkred", size = 4.5)+
-  annotate(geom="text", x=1.5, y=84, label = "Gráficos: JRLAB. 2020",color="darkblue", size = 4.5) +
-  theme_classic() +
-  theme(title = element_text(size = 20),
-        axis.title = element_text(size = 15),
-        axis.text = element_text(size = 15),
-        aspect.ratio = 1/1)
-
-
-
-## Other approach  (HAND mapping)
-# https://drmowinckels.io/blog/adding-external-images-to-plots/
-library(png)
-library(grid)
-
-dat <- sdg2018es_tidy %>% 
-  filter(City == "Granada") 
-
-PLOT <- dat %>%
-  ggplot(aes(x = reorder(SDG_NUM, SDG_VAL),
-             y = SDG_VAL,
-             label = round(SDG_VAL, 1))) +
-  geom_text(nudge_y = 5, color = "black", size = 5) +
-  geom_col(alpha = 0.5, fill = "lightblue") +
-  coord_flip() +
-  scale_x_discrete(labels = c("Andalucía" = expression(bold("*ANDALUCÍA")), parse=TRUE)) + 
-  scale_y_continuous(limits = c(0,100)) +
-  ggtitle("Índice ODS GRANADA.2018") + 
-  xlab("") + 
-  ylab("Índice ODS. (0-100)") +
-  annotate(geom="text", x=2.5, y=86, label = "Fuente: REDS.SDSN 2018",color="darkred", size = 4.5)+
-  annotate(geom="text", x=1.5, y=84, label = "Gráficos: JRLAB. 2020",color="darkblue", size = 4.5) +
-  theme_classic() +
-  theme(title = element_text(size = 20),
-        axis.title = element_text(size = 15),
-        axis.text = element_text(size = 15),
-        aspect.ratio = 1/1)
-#
-# Creat pic file array
-sdg1_file <- "resources/SDG Icons 2019_WEB/E-WEB-Goal-01.png"
-sdg2_file <- "resources/SDG Icons 2019_WEB/E-WEB-Goal-02.png"
-sdg3_file <- "resources/SDG Icons 2019_WEB/E-WEB-Goal-03.png"
-sdg4_file <- "resources/SDG Icons 2019_WEB/E-WEB-Goal-04.png"
-sdg5_file <- "resources/SDG Icons 2019_WEB/E-WEB-Goal-05.png"
-sdg6_file <- "resources/SDG Icons 2019_WEB/E-WEB-Goal-06.png"
-sdg7_file <- "resources/SDG Icons 2019_WEB/E-WEB-Goal-07.png"
-sdg8_file <- "resources/SDG Icons 2019_WEB/E-WEB-Goal-08.png"
-sdg9_file <- "resources/SDG Icons 2019_WEB/E-WEB-Goal-09.png"
-sdg10_file <- "resources/SDG Icons 2019_WEB/E-WEB-Goal-10.png"
-sdg11_file <- "resources/SDG Icons 2019_WEB/E-WEB-Goal-11.png"
-sdg12_file <- "resources/SDG Icons 2019_WEB/E-WEB-Goal-12.png"
-sdg13_file <- "resources/SDG Icons 2019_WEB/E-WEB-Goal-13.png"
-sdg14_file <- "resources/SDG Icons 2019_WEB/E-WEB-Goal-14.png"
-sdg15_file <- "resources/SDG Icons 2019_WEB/E-WEB-Goal-15.png"
-sdg16_file <- "resources/SDG Icons 2019_WEB/E-WEB-Goal-16.png"
-sdg17_file <- "resources/SDG Icons 2019_WEB/E-WEB-Goal-17.png"
-
-
-sdg_pic_file <- c(sdg1_file, sdg2_file, sdg3_file, sdg4_file, sdg5_file,
-                  sdg6_file, sdg7_file, sdg8_file, sdg9_file, sdg10_file,
-                  sdg11_file, sdg12_file, sdg13_file, sdg14_file, sdg15_file,
-                  sdg16_file, sdg17_file)
-#
-# Reorder pics according to the chart 
-sdg_pic_fil_ordered <- dat %>% cbind(sdg_pic_file, stringsAsFactors = FALSE) %>%
-  arrange(SDG_VAL) %>%
-  select(sdg_pic_file)
-
-sdg_pic_file <- sdg_pic_fil_ordered$sdg_pic_file
-
-g <- list()
-for(i in 1:nrow(dat)){
-  
-  img = readPNG(sdg_pic_file[i])
-  g[[i]] =  rasterGrob(img, interpolate=TRUE)
-  
-  PLOT = PLOT +
-    annotation_custom(grob = g[[i]], xmin=i-.5, xmax=i+.5, ymin=0, ymax=10)
-}
-PLOT
-
-ggsave("figs/ods_2018_Granada_pics.png", width = 15, height = 10)
-
