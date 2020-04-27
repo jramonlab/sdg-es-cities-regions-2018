@@ -67,6 +67,14 @@ sdg2018es <- cbind(dat_database_cities, dat_database_summary)
 #
 # Add column with average SDG score
 sdg2018es <- sdg2018es %>% mutate(sdg_avg = rowMeans(na.rm = TRUE, .[, c(5:ncol(sdg2018es))]))
+#
+# Add column with average SDG score (except SDG14)
+select_vars = c("sdg01", "sdg02", "sdg03", "sdg04", "sdg05",
+                "sdg06", "sdg07", "sdg08", "sdg09", "sdg10",
+                "sdg11", "sdg12", "sdg13", "sdg15", "sdg16",
+                "sdg17")
+sdg2018es <- sdg2018es %>% mutate(sdg_avg = rowMeans(na.rm = TRUE, select(.,all_of(select_vars))))
+
 
 class(sdg2018es)
 str(sdg2018es)
