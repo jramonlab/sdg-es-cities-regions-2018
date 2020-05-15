@@ -87,25 +87,32 @@ ggsave("figs/ods_2018_index_1_1.png", width = 15, height = 10)
 sdg2018es %>% group_by(Reg = .$'Region name') %>%
   summarize(CitiesInRegion = n(), region_avg = mean(sdg_avg), id = unique(region_id)) %>% 
   mutate(Reg = reorder(Reg, region_avg)) %>%
+  mutate(toHighlight = ifelse( Reg == "Andalucía", "yes", "no" ))  %>%
   mutate(region_avg = round(region_avg, 1)) %>%
-  ggplot(aes(Reg, region_avg, label = region_avg, text = CitiesInRegion)) + 
+  ggplot(aes(Reg, region_avg, 
+             label = region_avg, 
+             fill   = toHighlight == "yes",
+             text = CitiesInRegion)) + 
   
   geom_text(nudge_y = 5, color = "black", size = 5) +
-  geom_col(alpha = 0.2, fill = "lightblue") +
+  #geom_col(alpha = 0.2, fill = "lightblue") +
+  geom_col(alpha = 0.4) +
   
   geom_col(aes(Reg, CitiesInRegion), alpha = 0.2, fill = "red", width = 0.2) + 
   geom_text(aes(label = CitiesInRegion), y = 10 ,color = "black", size = 4) +
   
   coord_flip() +
-  scale_x_discrete(labels = c("Andalucía" = expression(bold("*ANDALUCÍA")), parse=TRUE)) + 
+  scale_fill_manual(values = simple_pallete) +
+  scale_x_discrete(labels = c("Andalucía" = expression(bold("ANDALUCÍA")), parse=TRUE)) + 
   scale_y_continuous(limits = c(0,100)) +
   ggtitle("Índice ODS conseguido por Comunidad. 2018") + 
   xlab("") + 
   ylab("Ciudades analizadas por CCAA / Índice ODS. (0-100)") +
   annotate(geom="text", x=2.5, y=86, label = "Fuente: REDS.SDSN 2018",color="darkred", size = 4.5)+
   annotate(geom="text", x=1.5, y=84, label = "Gráficos: JRLAB. 2020",color="darkblue", size = 4.5) +
-  theme_classic() +
-  theme(title = element_text(size = 20),
+  #theme_classic() +
+  theme(legend.position = "none",
+        title = element_text(size = 20),
         axis.title = element_text(size = 15),
         axis.text = element_text(size = 15),
         aspect.ratio = 1/1)
