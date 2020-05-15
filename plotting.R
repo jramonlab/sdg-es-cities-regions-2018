@@ -11,6 +11,9 @@ options(digits = 3)
 
 load("./rda/sdg2018es.rda")
 
+
+# BLUE and GREY
+simple_pallete <- c("grey", "#023048")
 #
 #A colorblind-friendly palette
 # The palette with grey:
@@ -52,19 +55,26 @@ sdg2018es %>% group_by(Reg = .$'Region name') %>%
   summarize(CitiesInRegion = n(), region_avg = mean(sdg_avg), id = unique(region_id)) %>% 
   mutate(Reg = reorder(Reg, region_avg)) %>%
   mutate(region_avg = round(region_avg, 1)) %>%
-  ggplot(aes(Reg, region_avg, label = region_avg, text = CitiesInRegion)) + 
+  mutate(toHighlight = ifelse( Reg == "Andalucía", "yes", "no" ))  %>%
+  ggplot(aes(Reg, region_avg, 
+             label = region_avg,
+             fill   = toHighlight == "yes",
+             text = CitiesInRegion)) + 
   geom_text(nudge_y = 5, color = "black", size = 5) +
-  geom_col(alpha = 0.4, fill = "lightblue") +
+  #geom_col(alpha = 0.4, fill = "lightblue") +
+  geom_col() +
   coord_flip() +
-  scale_x_discrete(labels = c("Andalucía" = expression(bold("*ANDALUCÍA")), parse=TRUE)) + 
+  scale_x_discrete(labels = c("Andalucía" = expression(bold("ANDALUCÍA")), parse=TRUE)) + 
   scale_y_continuous(limits = c(0,100)) +
+  scale_fill_manual(values = simple_pallete) +
   ggtitle("Índice ODS conseguido por Comunidad. 2018") + 
   xlab("") + 
   ylab("Índice ODS. (0-100)") +
   annotate(geom="text", x=2.5, y=86, label = "Fuente: REDS.SDSN 2018",color="darkred", size = 4.5)+
   annotate(geom="text", x=1.5, y=84, label = "Gráficos: JRLAB. 2020",color="darkblue", size = 4.5) +
-  theme_classic() +
-  theme(title = element_text(size = 20),
+  #theme_classic() +
+  theme(legend.position = "none",
+        title = element_text(size = 20),
         axis.title = element_text(size = 15),
         axis.text = element_text(size = 15),
         aspect.ratio = 1/1)
