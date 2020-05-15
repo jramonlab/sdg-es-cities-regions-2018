@@ -118,3 +118,38 @@ sdg2018es %>% group_by(Reg = .$'Region name') %>%
         aspect.ratio = 1/1)
 
 ggsave("figs/ods_2018_index_region_1_1.png", width = 15, height = 10)
+
+
+
+#
+# GOOD chart of ANDAÑLUCIA + cities + GRANADA (accent)
+sdg2018es %>% filter(region_id == "ES-AN") %>%
+  mutate(toHighlight = ifelse( City == "Granada", "yes", "no" ))  %>%
+  mutate(sdg_avg = round(sdg_avg,1)) %>%
+  ggplot(aes(x = reorder(City, sdg_avg), 
+             y = sdg_avg, 
+             label = sdg_avg, 
+             fill   = toHighlight == "yes")) + 
+  geom_text(nudge_y = 5, color = "black", size = 5) +
+  #geom_col(alpha = 0.2, fill = "lightblue") +
+  geom_col(alpha = 0.4) +
+  #geom_text(aes(label = CitiesInRegion), y = 10 ,color = "black", size = 4) +
+  
+  coord_flip() +
+  scale_fill_manual(values = simple_pallete) +
+  scale_y_continuous(limits = c(0,100)) +
+  ggtitle("Índice ODS conseguido en ciudades de Andalucía. 2018") + 
+  xlab("") + 
+  ylab("Índice ODS. (0-100)") +
+  annotate(geom="text", x=2.5, y=86, label = "Fuente: REDS.SDSN 2018",color="darkred", size = 4.5)+
+  annotate(geom="text", x=1.5, y=84, label = "Gráficos: JRLAB. 2020",color="darkblue", size = 4.5) +
+  #theme_classic() +
+  theme(legend.position = "none",
+        title = element_text(size = 20),
+        axis.title = element_text(size = 15),
+        axis.text = element_text(size = 15),
+        aspect.ratio = 1/1)
+
+ggsave("figs/ods_2018_index_ANDALUCIA_GR_1_1.png", width = 15, height = 10)
+
+
