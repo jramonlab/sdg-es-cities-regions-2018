@@ -125,7 +125,7 @@ ggsave("figs/ods_2018_index_region_1_1.png", width = 15, height = 10)
 # GOOD chart of ANDAÑLUCIA + cities + GRANADA (accent)
 sdg2018es %>% filter(region_id == "ES-AN") %>%
   mutate(toHighlight = ifelse( City == "Granada", "yes", "no" ))  %>%
-  mutate(sdg_avg = round(sdg_avg,1)) %>%
+  mutate(sdg_avg = round(sdg_avg,2)) %>%
   ggplot(aes(x = reorder(City, sdg_avg), 
              y = sdg_avg, 
              label = sdg_avg, 
